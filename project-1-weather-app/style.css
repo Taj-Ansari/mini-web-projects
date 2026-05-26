@@ -1,0 +1,190 @@
+/* General page styling and reset */
+body {
+    background-color: #f0f3f6;
+    color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main heading styling */
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    max-width: 600px;
+    line-height: 1.4;
+}
+
+/* Horizontal line styling */
+hr {
+    width: 100%;
+    max-width: 600px;
+    border: 0;
+    height: 1px;
+    background-color: #dcdde1;
+    margin-bottom: 25px;
+}
+
+/* Form section container layout */
+#formSection {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+/* Styling for both form rows */
+#cityForm,
+#stateForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Form labels */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #57606f;
+    white-space: nowrap;
+}
+
+/* Text input and select dropdown styling */
+#city,
+#stateSelect {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid #ced6e0;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    background-color: #f8f9fa;
+}
+
+#city:focus,
+#stateSelect:focus {
+    border-color: #3498db;
+    background-color: #ffffff;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Weather container main layout */
+.weather-container {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Location and date header area */
+.weather-header h2 {
+    font-size: 26px;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.weather-header p {
+    font-size: 14px;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+/* Center temperature display section */
+.weather-main {
+    margin: 30px 0;
+}
+
+.weather-icon {
+    margin: 0 auto;
+    font-size: 64px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.temperature-wrapper {
+    font-size: 64px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.temperature-unit {
+    font-size: 32px;
+    vertical-align: super;
+    font-weight: normal;
+}
+
+#weather-description {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 10px 0 0 0;
+    color: #f5f5f5;
+    letter-spacing: 0.5px;
+}
+
+/* Detailed parameters grid layout */
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 20px;
+}
+
+/* Individual detail cards inside the grid */
+.detail-item {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 14px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-label {
+    font-size: 11px;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.detail-value {
+    font-size: 16px;
+    font-weight: 600;
+}
