@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Data</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        #container {
+            display: flex;
+            flex-flow: row wrap;
+            max-width: 80%;
+            margin: 2rem auto;
+            justify-content: space-evenly;
+        }
+
+        #inputBox,
+        #outputBox {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #submitBtn {
+            padding: .5rem 1.5rem;
+            margin: 1em auto;
+            cursor: pointer;
+        }
+
+        form {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Currency Converter</h1>
+    <form action="">
+        <div id="container">
+            <div id="inputBox">
+                <label for="inputCurrency">From: </label>
+                <select name="inputCurrency" id="inputCurrency">
+                    <option value="#">select</option>
+                </select>
+                <br>
+                <label for="input">Enter Value</label>
+                <input type="number" id="input">
+
+            </div>
+            <div id="outputBox">
+                <label for="outputCurrency">To: </label>
+                <select name="outputCurrency" id="outputCurrency">
+                    <option value="#">select</option>
+                </select>
+                <br>
+                <label for="output">Enter Value</label>
+                <input type="number" id="output" disabled>
+            </div>
+        </div>
+        <button type="submit" id="submitBtn">Convert</button>
+    </form>
+
+    <p>
+
+    </p>
+    <script>
+        let data = {};
+        let currencies = [];
+        const inputCurrency = document.querySelector("#inputCurrency");
+        const outputCurrency = document.querySelector("#outputCurrency");
+        const form = document.querySelector("form")
+
+
+        const url = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((res) => {
+                for (let key in res[`usd`]) {
+                    currencies.push(key);
+                    let option = document.createElement("option");
+                    option.innerText = `${key.toUpperCase()}`;
+                    option.setAttribute('value', `${key}`);
+                    inputCurrency.append(option);
+                    outputCurrency.append(option.cloneNode(true));
+                }
+
+            })
+            .catch((err) => console.log("API ERROR: ", err));
+
+
+        form.addEventListener('submit', (event) => {
+            let data = {};
+            let result;
+            event.preventDefault();
+            const baseCurr = document.querySelector('#inputCurrency').value;
+            const conCurr = document.querySelector('#outputCurrency').value;
+            const inputValue = document.querySelector('#input').value;
+            const outputBox = document.querySelector('#output'); 
+
+            const newUrl = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${baseCurr}.json`;
+
+            fetch(newUrl)
+            .then((res)=> res.json())
+            .then((res)=>{
+                data = res[`${baseCurr}`];
+                result = inputValue * parseFloat(data[`${conCurr}`]);
+                outputBox.value = `${result}`;
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>
