@@ -6,7 +6,7 @@ This repository contains practical frontend projects focused on improving JavaSc
 
 ## Live Demo
 
-Coming Soon...
+[Click here](https://taj-ansari.github.io/mini-web-projects/)
 
 ## Tech Stack
 
